@@ -78,10 +78,9 @@ def syllable_engine(event):
                 return
             elif key in syllable_map:
                 buffer = key
-                # # keyboard.hook(syllable_engine, suppress=False)
-                # type_text('\b' + syllable_map[key][0])
-                keyboard.send('backspace')
-                keyboard.write(syllable_map[key][0])
+                # keyboard.hook(syllable_engine, suppress=False)
+                type_text('\b' + syllable_map[key][0])
+                
                 return
             elif key in vowel_order:
                 # buffer = key
@@ -117,7 +116,7 @@ def syllable_engine(event):
         buffer = ""
 
 def start_typing():
-    keyboard.hook(syllable_engine, suppress=True)
+    keyboard.hook(syllable_engine, suppress=False)
 
 def stop_typing():
     keyboard.unhook_all()
